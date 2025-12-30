@@ -1,32 +1,22 @@
-#include <stdio.h>
-
-char *ft_strrev (char *str)
+char *ft_strrev(char *str)
 {
-    int i;
-    int len;
-    char temp;
+    int i; //index from the start
+    int len; //length of the string later used ad index
+    char temp; //ued for swapping characters
 
     i = 0;
     len = 0;
 
     while(str[len])
         len++;
-    
-    while (i < len - 1)
+
+    while(i < len - 1)
     {
         temp = str[i];
         str[i] = str[len - 1];
-        str[len - 1]= temp;
-        i++;
-        len--;
+        str[len - 1] = temp;
+        i++; //move from the start
+        len--; // move from the end
     }
     return str;
-}
-
-int	main(void)
-{
-	char s[] = "Hello World";
-	ft_strrev(s);
-	printf("%s\n", s);
-	return (0);
 }

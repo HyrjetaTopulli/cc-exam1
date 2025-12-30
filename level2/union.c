@@ -3,38 +3,32 @@
 int main (int argc, char *argv[])
 {
     int i;
-    i = 0;
-    int lookup[256] = {0};
+    int j;
+    int ascii[128] = {0};
 
     if (argc == 3)
     {
-        while (argv[1][i])
-            lookup[(int)argv[1][i++]] = 1;
-
-        while (argv[2][i])
-            lookup[(int)argv[2][i++]] = 1;
         i = 0;
-
         while (argv[1][i])
         {
-            if (lookup[(int)argv[1][i]] == 1)
+            if (!ascii[(int)argv[1][i]])
             {
+                ascii[(int)argv[1][i]] = 1;
                 write(1, &argv[1][i], 1);
-                lookup[(int)argv[1][i]] = 0;
             }
             i++;
         }
-        i = 0;
-        while (argv[2][i])
+
+        j = 0;
+        while (argv[2][j])
         {
-            if (lookup[(int)argv[2][i]])
+            if (!ascii[(int)argv[2][j]])
             {
-                write(1, &argv[2][i], 1);
-                lookup[(int)argv[2][i]] = 0;
+                ascii[(int)argv[2][j]] = 1;
+                write(1, &argv[2][j], 1);
             }
-            i++;
+            j++;
         }
     }
     write(1, "\n", 1);
-    return 0;
 }

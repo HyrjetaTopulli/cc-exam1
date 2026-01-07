@@ -33,3 +33,8 @@ int main (void)
 	printf("%d\n", ft_atoi("42"));
 	printf("%d\n", ft_atoi("-42"));
 }
+
+
+
+
+

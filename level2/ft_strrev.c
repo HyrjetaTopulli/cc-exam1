@@ -20,3 +20,29 @@ char *ft_strrev(char *str)
     }
     return str;
 }
+
+
+
+// char *ft_strrev(char *str)
+// {
+//     int i;
+//     int len;
+//     int *temp;
+
+//     i = 0;
+//     len = 0;
+
+//     while (str[i])
+//         i++;
+
+//     while (i < len - 1)
+//     {
+//         temp = str[i];
+//         str[i] = str[len - 1];
+//         str[len - 1] = temp;
+
+//         i++;
+//         len--;
+//     }
+//     return str;
+// }

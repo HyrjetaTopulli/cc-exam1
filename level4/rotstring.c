@@ -1,22 +1,44 @@
 #include <unistd.h>
 
-int main (int argc, char *argv[])
+void rotstring(char *str)
 {
     int i;
+    i = 0;
     int j;
-    int k;
 
-    if (argc > 1)
+    while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+        i++;
+    
+    j = i;
+
+    while(str[i])
     {
-        i = 0;
-        j = 0;
-
-        while (argv[1][i] == ' ' || argv[1][i] == '\t')
+        while (str[i] && str[i] != ' ' && str[i] != '\t')
             i++;
-        k = i;
-
-        while (argv[1][i])
+        while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+            i++;
+        while ((str[i] && (str[i] != ' ' && str[i] != '\t')) && (str[i - 1] == ' ' || str[i - 1] == '\t'))
         {
-            if (argv[1][i] && (argv[1][i] != ' ' && argv[1][i] != '\t') && (argv[1][i - 1]))
+            while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+            {
+                write(1, &str[i], 1);
+                i++;
+            }
+            write(1, " ", 1);
+            i++;
+        }
     }
+    while (str[j] && (str[j] != ' ' && str[j] != '\t'))
+    {
+        write(1, &str[j], 1);
+        j++;
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc == 2)
+        rotstring(argv[1]);
+    write(1, "\n", 1);
+    return 0;
 }

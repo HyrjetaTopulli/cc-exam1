@@ -3,8 +3,8 @@
 // int *ft_range(int start, int end)
 // {
 //     int *range;
-//     int i = 0;
 //     int size;
+//     int i = 0;
 
 //     if (start > end)
 //         size = start - end + 1;

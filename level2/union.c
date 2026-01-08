@@ -18,7 +18,7 @@ int main (int argc, char *argv[])
             }
             i++;
         }
-
+        
         j = 0;
         while (argv[2][j])
         {

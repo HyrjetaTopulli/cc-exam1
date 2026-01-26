@@ -28,7 +28,7 @@
 
 #include <stdlib.h>
 
-int main (int start, int end)
+int *ft_range (int start, int end)
 {
     int *range;
     int i = 0;

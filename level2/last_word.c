@@ -10,6 +10,10 @@ int main (int ac, char **a)
 		while (a[1][i])
 			i++;
 		i--;
+
+		while (i >= 0 && (a[1][i] == ' ' || a[1][i] == '\t'))
+			i--;
+
 		// looping over the whole string backwards
 		// until we found a space
 		while (a[1][i] > 32)
@@ -17,7 +21,7 @@ int main (int ac, char **a)
 		i++;
 		// getting back to the end and writing the last word to
 		// the screen
-		while (a[1][i])
+		while (a[1][i] && a[1][i] > 32)
 		{
 			write(1, &a[1][i], 1);
 			i++;

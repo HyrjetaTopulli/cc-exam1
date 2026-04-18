@@ -1,37 +1,47 @@
 #include <unistd.h>
 
+void skip(char *str, int *i)
+{
+    while (str[*i] == ' ' || str[*i] == '\t')
+        (*i)++;
+}
+
+int c(char *str, int *i)
+{
+    if (str[*i] && str[*i] != ' ' && str[*i] != '\t')
+        return 1;
+    return 0;
+}
+
 void rotstring(char *str)
 {
-    int i;
-    i = 0;
-    int j;
+    int i = 0, start;
 
-    while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+    skip(str, &i);
+    start = i;
+
+    while (c(str, &i))
         i++;
-    
-    j = i;
 
-    while(str[i])
+    while (str[i])
     {
-        while (str[i] && str[i] != ' ' && str[i] != '\t')
-            i++;
-        while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-            i++;
-        while ((str[i] && (str[i] != ' ' && str[i] != '\t')) && (str[i - 1] == ' ' || str[i - 1] == '\t'))
+        skip(str, &i);
+inline var define c
+        if (str[i])
         {
-            while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+            while (c(str, &i))
             {
                 write(1, &str[i], 1);
                 i++;
             }
             write(1, " ", 1);
-            i++;
         }
     }
-    while (str[j] && (str[j] != ' ' && str[j] != '\t'))
+
+    while (c(str, &start))
     {
-        write(1, &str[j], 1);
-        j++;
+        write(1, &str[start], 1);
+        start++;
     }
 }
 

@@ -26,7 +26,7 @@ void rotstring(char *str)
     while (str[i])
     {
         skip(str, &i);
-inline var define c
+
         if (str[i])
         {
             while (c(str, &i))
